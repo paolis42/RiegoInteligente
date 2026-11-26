@@ -1,0 +1,30 @@
+# Login UI tests (app/src/androidTest/.../LoginTest.kt) run inside Hertzbench.
+# Build both APKs first: ./gradlew assembleDebug assembleDebugAndroidTest
+name: eva2-login
+seed: 1
+duration: 120s
+environment: { preset: indoor_office }
+nodes:
+  - id: nodo
+    board: esp32
+    firmware: ./firmware
+    position: [0, 0]
+    radios: [{ phy: wifi, channel: 5 }]
+  - id: phone
+    board: android
+    position: [6, 0]
+    radios: [{ phy: wifi, channel: 5 }]
+    android:
+      avd: pixel8
+      apk: ./app/build/outputs/apk/debug/app-debug.apk
+      package: cl.inacap.riegointeligente
+      activity: .MainActivity
+      instrument:
+        runner: cl.inacap.riegointeligente.test/androidx.test.runner.AndroidJUnitRunner
+        at: 5s
+        apk: ./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+assertions:
+  - serial: { node: phone, contains: "LoginTest#withoutSessionControlsAreHidden passed", within: 110s }
+  - serial: { node: phone, contains: "LoginTest#unknownCredentialsAreRejected passed", within: 110s }
+  - serial: { node: phone, contains: "LoginTest#wrongPasswordForRegisteredUserIsRejected passed", within: 110s }
+  - serial: { node: phone, contains: "LoginTest#registeredUserReachesDashboard passed", within: 110s }

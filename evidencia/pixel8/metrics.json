@@ -1,0 +1,193 @@
+{
+  "schema": 2,
+  "tool": "hertzbench",
+  "scenario": "eva2-gonzalez-torrent",
+  "phy": "wifi",
+  "seed": 1,
+  "duration_ms": 120000,
+  "latency": "modelled",
+  "fidelity": [
+    {
+      "component": "qemu-wifi-l2 adapter",
+      "protocol": "wi-fi/ip",
+      "level": "F2",
+      "meaning": "same firmware binary, frames captured at the netdev (layer 2 and up)"
+    },
+    {
+      "component": "board",
+      "description": "esp32: F2 for Wi-Fi/IP (same firmware binary, frames captured at the netdev); F1 for ESP-NOW (same binary, action frames from the QEMU fork's MAC model); F3 for BLE (a simulation-only build: the host stack sends HCI over a UART to the engine's virtual controller)"
+    },
+    {
+      "component": "board",
+      "description": "android: Android emulator (QEMU, x86_64 system image): the app, its OS and its IP stack run unchanged; the radio below wlan0 is the medium, 802.11 is not modelled (as for ESP32, F2)"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "nodo",
+      "board": "esp32",
+      "ip": "192.168.4.11",
+      "mac": "02:68:7a:62:01:01",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "channel": 5,
+      "radio": "wifi ch 5",
+      "on_medium": true,
+      "clock": "wall clock (QEMU Xtensa runs without -icount when Wi-Fi is on)"
+    },
+    {
+      "id": "phone",
+      "board": "android",
+      "ip": "192.168.4.12",
+      "mac": "02:15:d0:00:00:00",
+      "position": {
+        "x": 6,
+        "y": 0
+      },
+      "channel": 5,
+      "radio": "wifi ch 5",
+      "on_medium": true,
+      "clock": "wall clock (the guest follows host time)"
+    }
+  ],
+  "links": [
+    {
+      "from": "nodo",
+      "to": "phone",
+      "sent": 321,
+      "delivered": 321,
+      "dropped": {},
+      "loss_pct": 0,
+      "latency_ms": {
+        "p50": 0.3062469596552662,
+        "p95": 0.47797131503019474,
+        "p99": 0.5243864066216162,
+        "mean": 0.3052163251472592,
+        "max": 0.5374131694521754
+      },
+      "rssi_dbm": -51.409221867776054,
+      "snr_db": 39.5804781755845,
+      "mean_attempts": 1,
+      "bytes_delivered": 31225,
+      "espnow": null
+    },
+    {
+      "from": "phone",
+      "to": "nodo",
+      "sent": 450,
+      "delivered": 450,
+      "dropped": {},
+      "loss_pct": 0,
+      "latency_ms": {
+        "p50": 0.30419838518528264,
+        "p95": 0.49360428543128065,
+        "p99": 0.9637058860372751,
+        "mean": 0.32122698175146325,
+        "max": 1.1768520560671574
+      },
+      "rssi_dbm": -51.40922186777606,
+      "snr_db": 39.58047817558452,
+      "mean_attempts": 1,
+      "bytes_delivered": 41949,
+      "espnow": null
+    }
+  ],
+  "phases": [
+    {
+      "label": "start",
+      "from_ms": 0,
+      "to_ms": 120000,
+      "links": [
+        {
+          "from": "nodo",
+          "to": "phone",
+          "sent": 321,
+          "delivered": 321,
+          "dropped": {},
+          "loss_pct": 0,
+          "latency_ms": {
+            "p50": 0.3062469596552662,
+            "p95": 0.47797131503019474,
+            "p99": 0.5243864066216162,
+            "mean": 0.3052163251472592,
+            "max": 0.5374131694521754
+          },
+          "rssi_dbm": -51.409221867776054,
+          "snr_db": 39.5804781755845,
+          "mean_attempts": 1,
+          "bytes_delivered": 31225,
+          "espnow": null
+        },
+        {
+          "from": "phone",
+          "to": "nodo",
+          "sent": 450,
+          "delivered": 450,
+          "dropped": {},
+          "loss_pct": 0,
+          "latency_ms": {
+            "p50": 0.30419838518528264,
+            "p95": 0.49360428543128065,
+            "p99": 0.9637058860372751,
+            "mean": 0.32122698175146325,
+            "max": 1.1768520560671574
+          },
+          "rssi_dbm": -51.40922186777606,
+          "snr_db": 39.58047817558452,
+          "mean_attempts": 1,
+          "bytes_delivered": 41949,
+          "espnow": null
+        }
+      ]
+    }
+  ],
+  "bridge": null,
+  "warnings": [],
+  "problems": [],
+  "assertions": [
+    {
+      "description": "serial nodo contains \"http listening on 80\" within 30000 ms",
+      "passed": true,
+      "detail": "seen at -13774.519 ms"
+    },
+    {
+      "description": "serial phone contains \"-> 200 ACK;UMBRAL\" within 60000 ms",
+      "passed": true,
+      "detail": "seen at 556.675 ms"
+    },
+    {
+      "description": "serial phone contains \"-> 200 ACK;ACT:ON\" within 80000 ms",
+      "passed": true,
+      "detail": "seen at 1536.970 ms"
+    },
+    {
+      "description": "serial nodo contains \"cmd OK ACT:ON\" within 80000 ms",
+      "passed": true,
+      "detail": "seen at 1531.406 ms"
+    },
+    {
+      "description": "serial phone contains \"-> 409 repetido\" within 100000 ms",
+      "passed": true,
+      "detail": "seen at 2207.200 ms"
+    },
+    {
+      "description": "serial phone contains \"-> 401 firma invalida\" within 100000 ms",
+      "passed": true,
+      "detail": "seen at 2771.644 ms"
+    },
+    {
+      "description": "serial nodo contains \"seguridad RECHAZADO repeticion\" within 100000 ms",
+      "passed": true,
+      "detail": "seen at 2151.536 ms"
+    },
+    {
+      "description": "serial nodo contains \"seguridad RECHAZADO firma\" within 100000 ms",
+      "passed": true,
+      "detail": "seen at 2758.410 ms"
+    }
+  ],
+  "passed": true,
+  "interrupted": false
+}

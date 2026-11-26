@@ -1,0 +1,26 @@
+name: eva2-contingencia
+seed: 1
+duration: 120s
+environment:
+  preset: indoor_office
+  interference:
+    - { id: corte, position: [3, 0], power_dbm: 40, band: 2.4ghz, from: 30s, to: 60s }
+nodes:
+  - id: nodo
+    board: esp32
+    firmware: ./firmware
+    position: [0, 0]
+    radios: [{ phy: wifi, channel: 5 }]
+  - id: phone
+    board: android
+    position: [6, 0]
+    radios: [{ phy: wifi, channel: 5 }]
+    android:
+      avd: pixel8
+      apk: ./app/build/outputs/apk/debug/app-debug.apk
+      package: cl.inacap.riegointeligente
+      activity: .MainActivity
+      extras: { board_url: "http://192.168.4.11/", usuario: "demo" }
+assertions:
+  - serial: { node: nodo, contains: "http listening on 80", within: 30s }
+  - serial: { node: phone, contains: "Reconectando", within: 70s }

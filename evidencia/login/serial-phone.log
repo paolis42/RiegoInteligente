@@ -1,0 +1,6 @@
+[8.892s] test cl.inacap.riegointeligente.ExampleInstrumentedTest#useAppContext passed
+[14.430s] test cl.inacap.riegointeligente.LoginTest#unknownCredentialsAreRejected passed
+[25.597s] test cl.inacap.riegointeligente.LoginTest#wrongPasswordForRegisteredUserIsRejected passed
+[26.786s] test cl.inacap.riegointeligente.LoginTest#withoutSessionControlsAreHidden passed
+[36.368s] lectura ok 36.4% umbral=35.0% bomba=OFF
+[36.860s] test cl.inacap.riegointeligente.LoginTest#registeredUserReachesDashboard passed

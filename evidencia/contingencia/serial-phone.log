@@ -1,0 +1,52 @@
+[-1.139s] lectura ok 34.9% umbral=35.0% bomba=ON
+[0.487s] Iniciando secuencia de verificacion EVA2
+[0.650s] cmd UMBRAL:40 -> 200 ACK;UMBRAL:40;OK
+[0.751s] lectura ok 36.4% umbral=40.0% bomba=ON
+[1.430s] cmd ACT:ON -> 200 ACK;ACT:ON;OK
+[1.482s] lectura ok 37.9% umbral=40.0% bomba=ON
+[2.069s] cmd_repetido ACT:ON -> 409 repetido
+[2.734s] cmd_firma_alterada ACT:OFF -> 401 firma invalida
+[4.787s] lectura ok 39.4% umbral=40.0% bomba=ON
+[6.853s] lectura ok 40.9% umbral=40.0% bomba=ON
+[8.909s] lectura ok 42.4% umbral=40.0% bomba=ON
+[10.969s] lectura ok 43.9% umbral=40.0% bomba=ON
+[13.020s] lectura ok 45.4% umbral=40.0% bomba=ON
+[15.085s] lectura ok 46.9% umbral=40.0% bomba=ON
+[17.143s] lectura ok 49.9% umbral=40.0% bomba=ON
+[19.201s] lectura ok 51.4% umbral=40.0% bomba=ON
+[21.256s] lectura ok 52.9% umbral=40.0% bomba=ON
+[23.313s] lectura ok 54.4% umbral=40.0% bomba=ON
+[25.364s] lectura ok 55.9% umbral=40.0% bomba=ON
+[27.416s] lectura ok 57.4% umbral=40.0% bomba=ON
+[29.479s] lectura ok 58.9% umbral=40.0% bomba=ON
+[34.502s] lectura fallida: failed to connect to /192.168.4.11 (port 80) from /192.168.4.12 (port 39402) after 3000ms
+[34.503s] Reconectando... siguiente intento en 1000ms
+[39.510s] lectura fallida: failed to connect to /192.168.4.11 (port 80) from /192.168.4.12 (port 53616) after 3000ms
+[39.511s] Reconectando... siguiente intento en 2000ms
+[46.522s] lectura fallida: failed to connect to /192.168.4.11 (port 80) from /192.168.4.12 (port 54672) after 3000ms
+[46.523s] Reconectando... siguiente intento en 4000ms
+[57.537s] lectura fallida: failed to connect to /192.168.4.11 (port 80) from /192.168.4.12 (port 36542) after 3000ms
+[57.538s] Reconectando... siguiente intento en 8000ms
+[73.617s] lectura ok 85.0% umbral=40.0% bomba=ON
+[75.678s] lectura ok 85.0% umbral=40.0% bomba=ON
+[77.738s] lectura ok 85.0% umbral=40.0% bomba=ON
+[79.798s] lectura ok 85.0% umbral=40.0% bomba=ON
+[81.853s] lectura ok 85.0% umbral=40.0% bomba=ON
+[83.903s] lectura ok 85.0% umbral=40.0% bomba=ON
+[85.951s] lectura ok 85.0% umbral=40.0% bomba=ON
+[87.992s] lectura ok 85.0% umbral=40.0% bomba=ON
+[90.048s] lectura ok 85.0% umbral=40.0% bomba=ON
+[92.109s] lectura ok 85.0% umbral=40.0% bomba=ON
+[94.167s] lectura ok 85.0% umbral=40.0% bomba=ON
+[96.227s] lectura ok 85.0% umbral=40.0% bomba=ON
+[98.286s] lectura ok 85.0% umbral=40.0% bomba=ON
+[100.342s] lectura ok 85.0% umbral=40.0% bomba=ON
+[102.393s] lectura ok 85.0% umbral=40.0% bomba=ON
+[104.443s] lectura ok 85.0% umbral=40.0% bomba=ON
+[106.554s] lectura ok 85.0% umbral=40.0% bomba=ON
+[108.601s] lectura ok 85.0% umbral=40.0% bomba=ON
+[110.649s] lectura ok 85.0% umbral=40.0% bomba=ON
+[112.696s] lectura ok 85.0% umbral=40.0% bomba=ON
+[114.753s] lectura ok 85.0% umbral=40.0% bomba=ON
+[116.797s] lectura ok 85.0% umbral=40.0% bomba=ON
+[118.850s] lectura ok 85.0% umbral=40.0% bomba=ON

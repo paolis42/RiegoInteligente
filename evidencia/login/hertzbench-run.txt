@@ -1,0 +1,5 @@
+  PASS  serial phone contains "LoginTest#withoutSessionControlsAreHidden passed" within 110000 ms  (seen at 26785.818 ms)
+  PASS  serial phone contains "LoginTest#unknownCredentialsAreRejected passed" within 110000 ms  (seen at 14429.906 ms)
+  PASS  serial phone contains "LoginTest#wrongPasswordForRegisteredUserIsRejected passed" within 110000 ms  (seen at 25597.137 ms)
+  PASS  serial phone contains "LoginTest#registeredUserReachesDashboard passed" within 110000 ms  (seen at 36859.971 ms)
+RESULT: PASS

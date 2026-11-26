@@ -85,16 +85,22 @@ incorporarla deliberadamente en una carpeta apropiada, sin incluir secretos.
 
 ## Tabla de pruebas
 
-| Prueba | Resultado esperado | Estado |
+Ejecutadas el 2026-11-26 en Linux con KVM, Hertzbench v0.4.4, ESP32 emulado
+en QEMU y AVD `pixel8` (Android 16, API 36). La evidencia de cada corrida
+(salida de consola, serial de cada nodo y `metrics.json`) está en `evidencia/`.
+
+| Prueba | Cómo se probó | Resultado |
 | --- | --- | --- |
-| Compilación y pruebas unitarias Android | Compila; checksum y HMAC se comprueban | Aprobadas en copia aislada; repetir en la carpeta del proyecto |
-| Ejemplo oficial `udp-3-scripted` | `RESULT: PASS` | Aprobado; no prueba Android ni ESP32 |
-| Login | Rechaza credenciales incorrectas y oculta controles sin sesión | Pendiente de comprobación en emulador |
-| Lecturas | Mostrar, graficar y guardar en Room | Pendiente de prueba integral |
-| Umbral y bomba | Respuestas ACK del ESP32 | Pendiente de prueba integral |
-| Firma adulterada y repetición | Respuestas 401 y 409 y registros seriales | Pendiente de prueba integral |
-| Contingencia | Reconectar y reenviar comandos pendientes | Pendiente de prueba integral |
-| Dos dispositivos | `RESULT: PASS` para ambos escenarios | Pendiente: falta libqemu-xtensa en el equipo revisado |
+| Compilación y pruebas unitarias | `./gradlew assembleDebug testDebugUnitTest` | Aprobado: 6 de 6 tests |
+| Lecturas | `eva2.yaml`: la app recibe y guarda cada lectura con checksum válido | Aprobado |
+| Umbral y bomba | `eva2.yaml`: `UMBRAL:40` y `ACT:ON` responden `200 ACK` | Aprobado |
+| Firma adulterada y repetición | `eva2.yaml`: 401 y 409, ambos registrados en el serial del ESP32 | Aprobado: `RESULT: PASS`, 8 de 8 aserciones |
+| Contingencia | `eva2-contingencia.yaml`: interferencia corta el Wi-Fi entre 30 s y 60 s | Aprobado: muestra "Reconectando", reintenta a 1, 2, 4 y 8 s y se recupera sola a los 73 s |
+| Login | `eva2-login.yaml` corre `LoginTest` (androidTest) dentro de Hertzbench | Aprobado: 4 de 4 tests |
+| Dos dispositivos | `eva2-dispositivo2.yaml` con un AVD de API 37 | Pendiente: requiere instalar ese AVD |
+
+Para repetir los tests de login: `./gradlew assembleDebug assembleDebugAndroidTest`
+y luego `hertzbench run eva2-login.yaml --out out/login`.
 
 También queda pendiente mostrar al docente el mockup y el método de login,
 realizar la demostración en clase y subir el enlace del repositorio público a
