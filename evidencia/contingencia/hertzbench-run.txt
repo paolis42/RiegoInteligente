@@ -1,0 +1,3 @@
+  PASS  serial nodo contains "http listening on 80" within 30000 ms  (seen at -14410.522 ms)
+  PASS  serial phone contains "Reconectando" within 70000 ms  (seen at 34502.635 ms)
+RESULT: PASS

@@ -1,0 +1,54 @@
+[-17.834s] ets Jul 29 2019 12:21:46
+[-17.831s] rst:0x1 (POWERON_RESET),boot:0x12 (SPI_FAST_FLASH_BOOT)
+[-17.762s] configsip: 0, SPIWP:0xee
+[-17.759s] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[-17.758s] mode:DIO, clock div:1
+[-17.756s] load:0x3fff0030,len:1184
+[-17.754s] load:0x40078000,len:13260
+[-17.752s] load:0x40080400,len:3028
+[-17.745s] entry 0x400805e4
+[-14.420s] wifi up ip=192.168.4.11
+[-14.411s] http listening on 80
+[-1.203s] http GET /lectura from 192.168.4.12 -> LEC;34.9;35.0;ON;167
+[0.602s] cmd OK UMBRAL:40
+[0.738s] http GET /lectura from 192.168.4.12 -> LEC;36.4;40.0;ON;160
+[1.413s] cmd OK ACT:ON
+[1.472s] http GET /lectura from 192.168.4.12 -> LEC;37.9;40.0;ON;166
+[2.037s] seguridad RECHAZADO repeticion CMD;ACT:ON;1795731162776
+[2.705s] seguridad RECHAZADO firma CMD;ACT:OFF;1795731162777
+[4.780s] http GET /lectura from 192.168.4.12 -> LEC;39.4;40.0;ON;163
+[6.838s] http GET /lectura from 192.168.4.12 -> LEC;40.9;40.0;ON;160
+[8.894s] http GET /lectura from 192.168.4.12 -> LEC;42.4;40.0;ON;157
+[10.959s] http GET /lectura from 192.168.4.12 -> LEC;43.9;40.0;ON;163
+[13.013s] http GET /lectura from 192.168.4.12 -> LEC;45.4;40.0;ON;160
+[15.066s] http GET /lectura from 192.168.4.12 -> LEC;46.9;40.0;ON;166
+[17.131s] http GET /lectura from 192.168.4.12 -> LEC;49.9;40.0;ON;169
+[19.190s] http GET /lectura from 192.168.4.12 -> LEC;51.4;40.0;ON;157
+[21.249s] http GET /lectura from 192.168.4.12 -> LEC;52.9;40.0;ON;163
+[23.306s] http GET /lectura from 192.168.4.12 -> LEC;54.4;40.0;ON;160
+[25.359s] http GET /lectura from 192.168.4.12 -> LEC;55.9;40.0;ON;166
+[27.407s] http GET /lectura from 192.168.4.12 -> LEC;57.4;40.0;ON;163
+[29.467s] http GET /lectura from 192.168.4.12 -> LEC;58.9;40.0;ON;169
+[73.605s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[75.665s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[77.726s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[79.786s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[81.843s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[83.892s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[85.944s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[87.984s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[90.041s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[92.097s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[94.161s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[96.215s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[98.274s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[100.331s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[102.383s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[104.433s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[106.514s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[108.592s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[110.640s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[112.687s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[114.742s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[116.791s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160
+[118.840s] http GET /lectura from 192.168.4.12 -> LEC;85.0;40.0;ON;160

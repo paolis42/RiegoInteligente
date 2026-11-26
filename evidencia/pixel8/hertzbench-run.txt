@@ -1,0 +1,42 @@
+[hertzbench] all boards connected; running for 120000 ms
+Hertzbench: eva2-gonzalez-torrent  (seed 1, 120000 ms)
+
+Fidelity
+  wi-fi/ip: F2, same firmware binary, frames captured at the netdev (layer 2 and up)
+  esp32: F2 for Wi-Fi/IP (same firmware binary, frames captured at the netdev); F1 for ESP-NOW (same binary, action frames from the QEMU fork's MAC model); F3 for BLE (a simulation-only build: the host stack sends HCI over a UART to the engine's virtual controller)
+  android: Android emulator (QEMU, x86_64 system image): the app, its OS and its IP stack run unchanged; the radio below wlan0 is the medium, 802.11 is not modelled (as for ESP32, F2)
+  latency below is MODELLED by the channel model, not measured on a guest clock
+
+Nodes
+  node   board    ip            radio      position  clock
+  -----  -------  ------------  ---------  --------  --------------------------------------------------------------
+  nodo   esp32    192.168.4.11  wifi ch 5  (0, 0)    wall clock (QEMU Xtensa runs without -icount when Wi-Fi is on)
+  phone  android  192.168.4.12  wifi ch 5  (6, 0)    wall clock (the guest follows host time)
+
+Links, whole run
+  link         sent  delivered  loss  p50 ms  p95 ms  p99 ms  rssi dBm  snr dB  attempts
+  -----------  ----  ---------  ----  ------  ------  ------  --------  ------  --------
+  nodo->phone  321   321        0.0%  0.31    0.48    0.52    -51.4     39.6    1.00
+  phone->nodo  450   450        0.0%  0.30    0.49    0.96    -51.4     39.6    1.00
+
+Assertions
+  PASS  serial nodo contains "http listening on 80" within 30000 ms  (seen at -13774.519 ms)
+  PASS  serial phone contains "-> 200 ACK;UMBRAL" within 60000 ms  (seen at 556.675 ms)
+  PASS  serial phone contains "-> 200 ACK;ACT:ON" within 80000 ms  (seen at 1536.970 ms)
+  PASS  serial nodo contains "cmd OK ACT:ON" within 80000 ms  (seen at 1531.406 ms)
+  PASS  serial phone contains "-> 409 repetido" within 100000 ms  (seen at 2207.200 ms)
+  PASS  serial phone contains "-> 401 firma invalida" within 100000 ms  (seen at 2771.644 ms)
+  PASS  serial nodo contains "seguridad RECHAZADO repeticion" within 100000 ms  (seen at 2151.536 ms)
+  PASS  serial nodo contains "seguridad RECHAZADO firma" within 100000 ms  (seen at 2758.410 ms)
+
+RESULT: PASS
+
+Files
+  ./out/pixel8/metrics.json
+  ./out/pixel8/air.pcap
+  ./out/pixel8/events.jsonl
+  ./out/pixel8/serial-nodo.log
+  ./out/pixel8/serial-phone.log
+
+
+[exited with code 0]

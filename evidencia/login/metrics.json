@@ -1,0 +1,173 @@
+{
+  "schema": 2,
+  "tool": "hertzbench",
+  "scenario": "eva2-login",
+  "phy": "wifi",
+  "seed": 1,
+  "duration_ms": 120000,
+  "latency": "modelled",
+  "fidelity": [
+    {
+      "component": "qemu-wifi-l2 adapter",
+      "protocol": "wi-fi/ip",
+      "level": "F2",
+      "meaning": "same firmware binary, frames captured at the netdev (layer 2 and up)"
+    },
+    {
+      "component": "board",
+      "description": "esp32: F2 for Wi-Fi/IP (same firmware binary, frames captured at the netdev); F1 for ESP-NOW (same binary, action frames from the QEMU fork's MAC model); F3 for BLE (a simulation-only build: the host stack sends HCI over a UART to the engine's virtual controller)"
+    },
+    {
+      "component": "board",
+      "description": "android: Android emulator (QEMU, x86_64 system image): the app, its OS and its IP stack run unchanged; the radio below wlan0 is the medium, 802.11 is not modelled (as for ESP32, F2)"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "nodo",
+      "board": "esp32",
+      "ip": "192.168.4.11",
+      "mac": "02:68:7a:62:01:01",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "channel": 5,
+      "radio": "wifi ch 5",
+      "on_medium": true,
+      "clock": "wall clock (QEMU Xtensa runs without -icount when Wi-Fi is on)"
+    },
+    {
+      "id": "phone",
+      "board": "android",
+      "ip": "192.168.4.12",
+      "mac": "02:15:d0:00:00:00",
+      "position": {
+        "x": 6,
+        "y": 0
+      },
+      "channel": 5,
+      "radio": "wifi ch 5",
+      "on_medium": true,
+      "clock": "wall clock (the guest follows host time)"
+    }
+  ],
+  "links": [
+    {
+      "from": "nodo",
+      "to": "phone",
+      "sent": 8,
+      "delivered": 8,
+      "dropped": {},
+      "loss_pct": 0,
+      "latency_ms": {
+        "p50": 0.43087362843537697,
+        "p95": 0.5208025346344336,
+        "p99": 0.5208025346344336,
+        "mean": 0.399406243344373,
+        "max": 0.5208025346344336
+      },
+      "rssi_dbm": -51.40922186777597,
+      "snr_db": 39.58047817558421,
+      "mean_attempts": 1,
+      "bytes_delivered": 682,
+      "espnow": null
+    },
+    {
+      "from": "phone",
+      "to": "nodo",
+      "sent": 19,
+      "delivered": 19,
+      "dropped": {},
+      "loss_pct": 0,
+      "latency_ms": {
+        "p50": 0.49474534248439583,
+        "p95": 1.106867021320574,
+        "p99": 1.106867021320574,
+        "mean": 0.5845392239504935,
+        "max": 1.106867021320574
+      },
+      "rssi_dbm": -51.40922186777596,
+      "snr_db": 39.580478175584204,
+      "mean_attempts": 1,
+      "bytes_delivered": 4613,
+      "espnow": null
+    }
+  ],
+  "phases": [
+    {
+      "label": "start",
+      "from_ms": 0,
+      "to_ms": 120000,
+      "links": [
+        {
+          "from": "nodo",
+          "to": "phone",
+          "sent": 8,
+          "delivered": 8,
+          "dropped": {},
+          "loss_pct": 0,
+          "latency_ms": {
+            "p50": 0.43087362843537697,
+            "p95": 0.5208025346344336,
+            "p99": 0.5208025346344336,
+            "mean": 0.399406243344373,
+            "max": 0.5208025346344336
+          },
+          "rssi_dbm": -51.40922186777597,
+          "snr_db": 39.58047817558421,
+          "mean_attempts": 1,
+          "bytes_delivered": 682,
+          "espnow": null
+        },
+        {
+          "from": "phone",
+          "to": "nodo",
+          "sent": 19,
+          "delivered": 19,
+          "dropped": {},
+          "loss_pct": 0,
+          "latency_ms": {
+            "p50": 0.49474534248439583,
+            "p95": 1.106867021320574,
+            "p99": 1.106867021320574,
+            "mean": 0.5845392239504935,
+            "max": 1.106867021320574
+          },
+          "rssi_dbm": -51.40922186777596,
+          "snr_db": 39.580478175584204,
+          "mean_attempts": 1,
+          "bytes_delivered": 4613,
+          "espnow": null
+        }
+      ]
+    }
+  ],
+  "bridge": null,
+  "warnings": [],
+  "problems": [],
+  "assertions": [
+    {
+      "description": "serial phone contains \"LoginTest#withoutSessionControlsAreHidden passed\" within 110000 ms",
+      "passed": true,
+      "detail": "seen at 26785.818 ms"
+    },
+    {
+      "description": "serial phone contains \"LoginTest#unknownCredentialsAreRejected passed\" within 110000 ms",
+      "passed": true,
+      "detail": "seen at 14429.906 ms"
+    },
+    {
+      "description": "serial phone contains \"LoginTest#wrongPasswordForRegisteredUserIsRejected passed\" within 110000 ms",
+      "passed": true,
+      "detail": "seen at 25597.137 ms"
+    },
+    {
+      "description": "serial phone contains \"LoginTest#registeredUserReachesDashboard passed\" within 110000 ms",
+      "passed": true,
+      "detail": "seen at 36859.971 ms"
+    }
+  ],
+  "passed": true,
+  "interrupted": false
+}
