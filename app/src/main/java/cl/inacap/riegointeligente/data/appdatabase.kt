@@ -7,13 +7,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [Usuario::class],
-    version = 1,
+    entities = [Usuario::class, Lectura::class, ComandoPendiente::class],
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun usuarioDao(): UsuarioDao
+    abstract fun lecturaDao(): LecturaDao
+    abstract fun comandoDao(): ComandoDao
 
     companion object {
 
@@ -26,7 +28,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "riego_inteligente_db"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration(true)
+                    .build()
 
                 INSTANCE = instancia
                 instancia

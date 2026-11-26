@@ -23,3 +23,6 @@ local.properties
 *.keystore
 *.pem
 *.p12
+firmware/secrets.h
+out/
+**/out/
