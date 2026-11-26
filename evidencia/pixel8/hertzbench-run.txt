@@ -32,11 +32,11 @@ Assertions
 RESULT: PASS
 
 Files
-  /tmp/claude-1000/-home-rixmerz-Personal-Inacap-2S/cfb2ad88-8590-409b-ac14-fcd995b54fda/scratchpad/riego/out/pixel8/metrics.json
-  /tmp/claude-1000/-home-rixmerz-Personal-Inacap-2S/cfb2ad88-8590-409b-ac14-fcd995b54fda/scratchpad/riego/out/pixel8/air.pcap
-  /tmp/claude-1000/-home-rixmerz-Personal-Inacap-2S/cfb2ad88-8590-409b-ac14-fcd995b54fda/scratchpad/riego/out/pixel8/events.jsonl
-  /tmp/claude-1000/-home-rixmerz-Personal-Inacap-2S/cfb2ad88-8590-409b-ac14-fcd995b54fda/scratchpad/riego/out/pixel8/serial-nodo.log
-  /tmp/claude-1000/-home-rixmerz-Personal-Inacap-2S/cfb2ad88-8590-409b-ac14-fcd995b54fda/scratchpad/riego/out/pixel8/serial-phone.log
+  ./out/pixel8/metrics.json
+  ./out/pixel8/air.pcap
+  ./out/pixel8/events.jsonl
+  ./out/pixel8/serial-nodo.log
+  ./out/pixel8/serial-phone.log
 
 
 [exited with code 0]
